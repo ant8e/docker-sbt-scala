@@ -24,7 +24,7 @@ RUN \
 RUN \
   curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
   apt-get update && apt-get install -y nodejs  # install deps && \
-  npm install jsdom source-map-support 
+  npm install -g jsdom source-map-support 
 
 
 # Define working directory
