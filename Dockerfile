@@ -23,8 +23,8 @@ RUN \
 # Install Scala.js dependencies
 RUN \
   curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-  apt-get update && apt-get install -y nodejs && \
-  npm install jsdom source-map-support 
+  apt-get install -y nodejs && \
+  npm install jsdom@v9 source-map-support
 
 
 # Define working directory
