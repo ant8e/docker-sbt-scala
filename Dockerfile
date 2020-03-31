@@ -1,9 +1,8 @@
-FROM  openjdk:8
+from adoptopenjdk/openjdk11:jdk-11.0.6_10-debian-slim
 
-ENV SCALA_VERSION 2.12.1
-ENV SBT_VERSION 0.13.15
+ENV SCALA_VERSION 2.12.10
+ENV SBT_VERSION 1.3.8
 
-RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
 
 # Install Scala
 RUN \
@@ -22,10 +21,16 @@ RUN \
 
 # Install Scala.js dependencies
 RUN \
-  curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-  apt-get install -y nodejs && \
-  npm install jsdom@v9 source-map-support
+  curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+  apt-get install -y  software-properties-common  nodejs
 
+ RUN \
+   curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && \
+   add-apt-repository  "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"  && \
+   apt-get update && \
+   apt-get install docker-ce-cli && \
+   docker --version
+  
 
 # Define working directory
 WORKDIR /root
