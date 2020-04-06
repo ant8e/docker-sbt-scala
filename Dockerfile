@@ -1,9 +1,10 @@
-from adoptopenjdk/openjdk11:jdk-11.0.6_10-debian-slim
+from openjdk:8-jdk-slim
 
 ENV SCALA_VERSION 2.12.10
-ENV SBT_VERSION 1.3.8
+ENV SBT_VERSION 1.3.9
 
-
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl && rm -rf /var/lib/apt/lists/*
+ 
 # Install Scala
 RUN \
   curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
