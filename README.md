@@ -1,7 +1,9 @@
 # Scala/Scala.js and sbt Dockerfile
 
-This repository contains **Dockerfile** of [Scala](http://www.scala-lang.org), [sbt](http://www.scala-sbt.org),  
+This repository contains a **Dockerfile** of [Scala](http://www.scala-lang.org), [sbt](http://www.scala-sbt.org),  
 [node.js](https://nodejs.org/en/) and Docker CLI. 
+
+The primary purpose of this docker container is to build Scala/Scala.js projects with sbt.
 
 
 ## Content ##
